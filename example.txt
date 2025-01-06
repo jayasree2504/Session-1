@@ -1,4 +1,0 @@
-Hello World! >> example.txt
-echo Hello World
-Hello World
-Hello World
