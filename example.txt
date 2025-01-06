@@ -1,0 +1,2 @@
+Hello World! >> example.txt
+echo Hello World
