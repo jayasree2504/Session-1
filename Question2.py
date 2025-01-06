@@ -5,3 +5,4 @@ def process(d):
         'inactive': 'Inactive'
     }
     print(actions.get(status, 'Unknown'))
+mkdir
