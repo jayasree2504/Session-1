@@ -1,8 +1,4 @@
-#include <iostream>
-#include <map>
-#include <string>
-#include <iomanip>
-
+#include<bits>/stdc++.h>
 using namespace std;
 
 class OrderService {
@@ -24,12 +20,12 @@ public:
 
     // Display the available inventory to the user
     void showInventory() {
-        cout << "\nAvailable Inventory:\n";
-        cout << left << setw(15) << "Item" << setw(10) << "Quantity" << setw(10) << "Price\n";
-        for (const auto& [item, details] : inventory) {
-            cout << left << setw(15) << item << setw(10) << details.first << setw(10) << fixed << setprecision(2) << details.second << "\n";
-        }
+    cout << "\nAvailable Inventory:\n";
+    for (const auto& [item, details] : inventory) {
+        cout << item << ": Quantity = " << details.first << ", Price = $" << fixed << setprecision(2) << details.second << "\n";
     }
+}
+
 
     // Check if the requested items and quantities are valid
     bool validateOrder(const map<string, int>& order) {
@@ -85,20 +81,19 @@ public:
 
     // Print the receipt for the user
     void printReceipt(const map<string, int>& order, double tax, double discount, double total) {
-        cout << "\n---- Receipt ----\n";
-        cout << left << setw(15) << "Item" << setw(10) << "Quantity" << setw(10) << "Price\n";
+    cout << "\n---- Receipt ----\n";
 
-        for (const auto& [item, quantity] : order) {
-            cout << left << setw(15) << item << setw(10) << quantity << setw(10) << inventory[item].second * quantity << "\n";
-        }
-
-        cout << "-----------------\n";
-        cout << "Tax: $" << fixed << setprecision(2) << tax << "\n";
-        cout << "Discount: $" << fixed << setprecision(2) << discount << "\n";
-        cout << "Total: $" << fixed << setprecision(2) << total << "\n";
-        cout << "-----------------\n";
+    for (const auto& [item, quantity] : order) {
+        cout << item << " x" << quantity << " = $" 
+             << fixed << setprecision(2) << inventory[item].second * quantity << "\n";
     }
-};
+    cout << "-----------------\n";
+    cout << "Tax: $" << fixed << setprecision(2) << tax << "\n";
+    cout << "Discount: $" << fixed << setprecision(2) << discount << "\n";
+    cout << "Total: $" << fixed << setprecision(2) << total << "\n";
+    cout << "-----------------\n";
+}
+
 
 int main() {
     OrderService orderService;
