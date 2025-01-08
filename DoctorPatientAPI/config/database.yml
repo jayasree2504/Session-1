@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: lenovo
+  password: 1234 # Use the password you set above
+  host: localhost
+
+development:
+  <<: *default
+  database: doctor_patient_management_api_development
+
+test:
+  <<: *default
+  database: doctor_patient_management_api_test
+
+production:
+  <<: *default
+  database: doctor_patient_management_api_production
+  username: lenovo
+  password: <%= ENV["DOCTOR_PATIENT_MANAGEMENT_API_DATABASE_PASSWORD"] %>
